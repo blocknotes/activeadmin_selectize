@@ -6,11 +6,13 @@ Features:
 - nice select inputs
 - items search
 - AJAX content loading
+- improve many-to-many / one-to-many selection
 
 ## Install
 
-- Add to your Gemfile (also add _jquery-rails_ or include jQuery manually):
+- Add to your Gemfile:
 `gem 'activeadmin_selectize'`
+- Add _jquery-rails_ gem or include jQuery manually
 - Execute bundle
 - Add at the end of your ActiveAdmin styles (_app/assets/stylesheets/active_admin.scss_):
 `@import 'activeadmin/selectize_input';`
@@ -21,7 +23,7 @@ Features:
 ```
 - Use the input with `as: :selectize` in Active Admin model conf
 
-Why 2 separated scripts? In this way you can include a different version of selectize.js if you like.
+Why 2 separated scripts? In this way you can include a different version of Selectize.js if you like.
 
 ## Example
 
@@ -54,7 +56,7 @@ Pass the required options using `input_html`.
 - **data-opt-remote**: URL used for AJAX search requests (method GET)
 - **data-opt-text**: field to use as option label
 - **data-opt-value**: field to use as select value
-- **data-opt-...**: option passed directly to Selectize.js - see [options](https://github.com/selectize/selectize.js/blob/master/docs/usage.md#configuration)
+- **data-opt-NAME**: option _NAME_ passed directly to Selectize.js - see [options](https://github.com/selectize/selectize.js/blob/master/docs/usage.md#configuration)
 
 ## Contributors
 
