@@ -58,6 +58,10 @@ Pass the required options using `input_html`.
 - **data-opt-value**: field to use as select value
 - **data-opt-NAME**: option _NAME_ passed directly to Selectize.js - see [options](https://github.com/selectize/selectize.js/blob/master/docs/usage.md#configuration)
 
+Alternative syntax:
+
+- **data-opts**: overrides Selectize options - example: `'data-opts': '{"highlight":true,"plugins":[]}'`
+
 ## Contributors
 
 - [Mattia Roccoberton](http://blocknot.es) - creator, maintainer

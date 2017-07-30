@@ -13,12 +13,19 @@ $(document).ready( function() {
       searchField: field_text,
       valueField: field_value
     };
-    $.each( this.attributes, function( i, attr ) {
-      if( attr.name.startsWith( 'data-opt-' ) ) {
-        var name = attr.name.substr( 9 );
-        if( name != 'remote' && name != 'text' && name != 'value' ) opts[name] = ( attr.value == 'true' ) ? true : ( ( attr.value == 'false' ) ? false : attr.value );
-      }
-    });
+
+    if (!$(this).data('opts') ) {
+      $.each( this.attributes, function( i, attr ) {
+        if( attr.name.startsWith( 'data-opt-' ) ) {
+          var name = attr.name.substr( 9 );
+          if( name != 'remote' && name != 'text' && name != 'value' ) opts[name] = ( attr.value == 'true' ) ? true : ( ( attr.value == 'false' ) ? false : attr.value );
+        }
+      });
+    }
+    else {
+      opts = $.extend({}, opts, $(this).data('opts'));
+    }
+
     opts['load'] = function( query, callback ) {
       if( !query.length ) return callback();
       $.ajax({
