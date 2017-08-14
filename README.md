@@ -25,6 +25,16 @@ Features:
 
 Why 2 separated scripts? In this way you can include a different version of Selectize.js if you like.
 
+## Notes
+
+- In ActiveAdmin json routes should be enabled by default, this behavior is controlled by *download_links* option for index action. Example:
+
+```rb
+index download_links: [:csv, :json] do
+  # ...
+end
+```
+
 ## Example
 
 Example 1: an Article model with a many-to-many relation with Tag model:
