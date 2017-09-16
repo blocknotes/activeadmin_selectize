@@ -4,7 +4,9 @@ module Formtastic
       include Formtastic::Inputs::Base
 
       def input_html_options
-        super.merge( class: 'selectized' )
+        opts = super
+        opts[:class] = opts[:class].blank? ? 'selectized' : ( opts[:class] + ' selectized' )
+        opts
       end
 
       # def collection

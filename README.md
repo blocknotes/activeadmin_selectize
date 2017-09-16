@@ -25,17 +25,7 @@ Features:
 
 Why 2 separated scripts? In this way you can include a different version of Selectize.js if you like.
 
-## Notes
-
-- In ActiveAdmin json routes should be enabled by default, this behavior is controlled by *download_links* option for index action. Example:
-
-```rb
-index download_links: [:csv, :json] do
-  # ...
-end
-```
-
-## Example
+## Examples
 
 Example 1: an Article model with a many-to-many relation with Tag model:
 
@@ -59,6 +49,37 @@ end
   end
 ```
 
+Example 2: using selectize in filters:
+
+```ruby
+# Without remote items (no AJAX):
+filter :name_eq, as: :selectize, collection: Author.all.pluck( :name, :name )
+# With remote items:
+filter :tags_id_eq, as: :selectize, collection: [], input_html: { 'data-opt-remote': '/admin/tags.json', 'data-opt-text': 'name', 'data-opt-value': 'id', 'data-opts': '{"dropdownParent":"body"}', placeholder: 'Search a tag...' }
+```
+
+## Notes
+
+- In ActiveAdmin json routes should be enabled by default, this behavior is controlled by *download_links* option for index action. Example:
+
+```rb
+index download_links: [:csv, :json] do
+  # ...
+end
+```
+
+You can customize the JSON response overriding the *as_json* method of the model:
+
+```rb
+def as_json( options = nil )
+  super({ only: [:id], methods: [:fullname] }.merge(options || {}))
+end
+```
+
+- If the select items "gets cut" by the container try adding: `'data-opts': '{"dropdownParent":"body"}'`
+
+- Alternative syntax to pass data attributes: `input_html: { data: { opts: '{}' } }`
+
 ## Options
 
 Pass the required options using `input_html`.
@@ -71,6 +92,10 @@ Pass the required options using `input_html`.
 Alternative syntax:
 
 - **data-opts**: overrides Selectize options - example: `'data-opts': '{"highlight":true,"plugins":[]}'`
+
+## Do you like it? Star it!
+
+If you use this component just star it. A developer is more motivated to improve a project when there is some interest.
 
 ## Contributors
 
