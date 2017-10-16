@@ -97,6 +97,8 @@ Alternative syntax:
 
 If you use this component just star it. A developer is more motivated to improve a project when there is some interest.
 
+Take a look at [other ActiveAdmin components](https://github.com/blocknotes?utf8=✓&tab=repositories&q=activeadmin&type=source) that I made if you are curious.
+
 ## Contributors
 
 - [Mattia Roccoberton](http://blocknot.es) - creator, maintainer
