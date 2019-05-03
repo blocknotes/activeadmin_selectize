@@ -1,8 +1,7 @@
-$(document).ready( function() {
-  $('.selectized').each( function() {
-    var remote = $(this).attr( 'data-opt-remote' ) ? $(this).attr( 'data-opt-remote' ) : '';
-    var field_text = $(this).attr( 'data-opt-text' ) ? $(this).attr( 'data-opt-text' ) : 'name';
-    var field_value = $(this).attr( 'data-opt-value' ) ? $(this).attr( 'data-opt-value' ) : 'id';
+function active_selectize (element) {
+  var remote = $(element).attr( 'data-opt-remote' ) ? $(element).attr( 'data-opt-remote' ) : '';
+    var field_text = $(element).attr( 'data-opt-text' ) ? $(element).attr( 'data-opt-text' ) : 'name';
+    var field_value = $(element).attr( 'data-opt-value' ) ? $(element).attr( 'data-opt-value' ) : 'id';
     var opts = {
       closeAfterSelect: true,
       create: false,
@@ -14,8 +13,8 @@ $(document).ready( function() {
       valueField: field_value
     };
 
-    if (!$(this).data('opts') ) {
-      $.each( this.attributes, function( i, attr ) {
+    if (!$(element).data('opts') ) {
+      $.each( element.attributes, function( i, attr ) {
         if( attr.name.startsWith( 'data-opt-' ) ) {
           var name = attr.name.substr( 9 );
           if( name != 'remote' && name != 'text' && name != 'value' ) opts[name] = ( attr.value == 'true' ) ? true : ( ( attr.value == 'false' ) ? false : attr.value );
@@ -23,7 +22,7 @@ $(document).ready( function() {
       });
     }
     else {
-      opts = $.extend({}, opts, $(this).data('opts'));
+      opts = $.extend({}, opts, $(element).data('opts'));
     }
 
     opts['load'] = function( query, callback ) {
@@ -39,6 +38,25 @@ $(document).ready( function() {
         }
       });
     };
-    $(this).selectize( opts );
+    $(element).selectize( opts );
+}
+
+$(document).ready(function() {
+  $('.selectized').each(function() {
+    active_selectize(this);
   });
+
+  var document_mutation = new MutationObserver(function(mutationRecords) {
+    mutationRecords.forEach(function(record) {
+      console.log(record);
+      record.addedNodes.forEach(function(node) {
+        if (node.tagName === 'FIELDSET') {
+          var target = $(node).find('.selectized');
+          active_selectize(target);
+        }
+      });
+    });
+  });
+  
+  document_mutation.observe(document, { childList: true, subtree: true });  
 });
