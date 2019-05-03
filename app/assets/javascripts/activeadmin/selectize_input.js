@@ -51,7 +51,7 @@ $(document).ready(function() {
       console.log(record);
       record.addedNodes.forEach(function(node) {
         if (node.tagName === 'FIELDSET') {
-          var target = $(node).find('.selectized');
+          var target = $(node).find('select.selectized');
           active_selectize(target);
         }
       });
