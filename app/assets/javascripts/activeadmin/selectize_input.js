@@ -48,7 +48,6 @@ $(document).ready(function() {
 
   var document_mutation = new MutationObserver(function(mutationRecords) {
     mutationRecords.forEach(function(record) {
-      console.log(record);
       record.addedNodes.forEach(function(node) {
         if (node.tagName === 'FIELDSET') {
           var target = $(node).find('select.selectized');
