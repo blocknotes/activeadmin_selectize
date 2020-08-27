@@ -3,16 +3,15 @@
 An Active Admin plugin to use [Selectize.js](http://selectize.github.io/selectize.js) (jQuery required).
 
 Features:
-- nice select inputs
-- items search
-- AJAX content loading
-- improve many-to-many / one-to-many selection
+- nice select inputs;
+- items search;
+- AJAX content loading;
+- improve many-to-many / one-to-many selection.
 
 ## Install
 
 - Add to your Gemfile:
 `gem 'activeadmin_selectize'`
-- Add _jquery-rails_ gem or include jQuery manually
 - Execute bundle
 - Add at the end of your ActiveAdmin styles (_app/assets/stylesheets/active_admin.scss_):
 `@import 'activeadmin/selectize_input';`
@@ -80,6 +79,8 @@ end
 
 - Alternative syntax to pass data attributes: `input_html: { data: { opts: '{}' } }`
 
+- To use this plugins with ActiveAdmin 1.x please use the version 0.1.6
+
 ## Options
 
 Pass the required options using `input_html`.
@@ -101,7 +102,7 @@ Take a look at [other ActiveAdmin components](https://github.com/blocknotes?utf8
 
 ## Contributors
 
-- [Mattia Roccoberton](http://blocknot.es) - creator, maintainer
+- [Mattia Roccoberton](http://blocknot.es): author
 
 ## License
 
