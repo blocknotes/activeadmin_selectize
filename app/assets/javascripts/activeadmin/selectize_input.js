@@ -1,5 +1,5 @@
-$(document).ready( function() {
-  $('.selectized').each( function() {
+function initSelectizeInputs() {
+  $('[data-selectize-input]').each( function() {
     var remote = $(this).attr( 'data-opt-remote' ) ? $(this).attr( 'data-opt-remote' ) : '';
     var field_text = $(this).attr( 'data-opt-text' ) ? $(this).attr( 'data-opt-text' ) : 'name';
     var field_value = $(this).attr( 'data-opt-value' ) ? $(this).attr( 'data-opt-value' ) : 'id';
@@ -41,4 +41,12 @@ $(document).ready( function() {
     };
     $(this).selectize( opts );
   });
+}
+
+$(document).on('has_many_add:after', function () {
+  initSelectizeInputs();
+});
+
+$(document).ready( function() {
+  initSelectizeInputs();
 });
