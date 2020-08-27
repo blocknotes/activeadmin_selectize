@@ -1,4 +1,4 @@
-# ActiveAdmin Selectize [![Gem Version](https://badge.fury.io/rb/activeadmin_selectize.svg)](https://badge.fury.io/rb/activeadmin_selectize)
+# ActiveAdmin Selectize [![Gem Version](https://badge.fury.io/rb/activeadmin_selectize.svg)](https://badge.fury.io/rb/activeadmin_selectize) [![CircleCI](https://circleci.com/gh/blocknotes/activeadmin_selectize.svg?style=svg)](https://circleci.com/gh/blocknotes/activeadmin_selectize)
 
 An Active Admin plugin to use [Selectize.js](http://selectize.github.io/selectize.js) (jQuery required).
 
