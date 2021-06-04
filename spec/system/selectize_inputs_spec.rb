@@ -2,13 +2,13 @@
 
 RSpec.describe 'Selectize inputs', type: :system do
   let(:authors) do
-    3.times.map do |i|
+    Array.new(3) do |i|
       Author.create!(email: "some_email_#{i}@example.com", name: "John #{i}", age: 30 + i * 3)
     end
   end
   let(:post) { Post.create!(title: 'Test', author: authors.last) }
   let(:tags) do
-    3.times.map do |i|
+    Array.new(3) do |i|
       Tag.create!(name: "A tag #{i}")
     end
   end
@@ -31,7 +31,7 @@ RSpec.describe 'Selectize inputs', type: :system do
     it 'includes the hidden select and the selectize-input element' do
       visit "/admin/posts/#{post.id}/edit"
 
-      expect(page).to have_select('post[author_id]', visible: false, selected: authors.last.name)
+      expect(page).to have_select('post[author_id]', visible: :hidden, selected: authors.last.name)
       expect(page).to have_css(selectize_input)
     end
 
@@ -54,7 +54,7 @@ RSpec.describe 'Selectize inputs', type: :system do
     it 'includes the hidden select and the selectize-input element' do
       visit "/admin/posts/#{post.id}/edit"
 
-      expect(page).to have_select('post[tag_ids][]', visible: false, selected: tags.last.name)
+      expect(page).to have_select('post[tag_ids][]', visible: :hidden, selected: tags.last.name)
       expect(page).to have_css(selectize_input)
     end
 
