@@ -1,4 +1,5 @@
-# ActiveAdmin Selectize [![Gem Version](https://badge.fury.io/rb/activeadmin_selectize.svg)](https://badge.fury.io/rb/activeadmin_selectize) [![Specs](https://github.com/blocknotes/activeadmin_selectize/actions/workflows/specs.yml/badge.svg)](https://github.com/blocknotes/activeadmin_selectize/actions/workflows/specs.yml)
+# ActiveAdmin Selectize
+[![gem version](https://badge.fury.io/rb/activeadmin_selectize.svg)](https://badge.fury.io/rb/activeadmin_selectize) [![gem downloads](https://badgen.net/rubygems/dt/activeadmin_selectize)](https://rubygems.org/gems/activeadmin_selectize) [![linters](https://github.com/blocknotes/activeadmin_selectize/actions/workflows/linters.yml/badge.svg)](https://github.com/blocknotes/activeadmin_selectize/actions/workflows/linters.yml) [![specs](https://github.com/blocknotes/activeadmin_selectize/actions/workflows/specs.yml/badge.svg)](https://github.com/blocknotes/activeadmin_selectize/actions/workflows/specs.yml)
 
 An Active Admin plugin to use [Selectize.js](http://selectize.github.io/selectize.js) (jQuery required).
 
