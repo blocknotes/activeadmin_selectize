@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Formtastic
   module Inputs
     class SelectizeInput < Formtastic::Inputs::SelectInput
