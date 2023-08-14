@@ -50,4 +50,5 @@
   $(document).ready(initSelectizeInputs);
   $(document).on('has_many_add:after', initSelectizeInputs);
   $(document).on('turbolinks:load', initSelectizeInputs);
+  $(document).on('turbo:load', initSelectizeInputs);
 })()
