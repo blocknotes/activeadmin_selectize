@@ -30,7 +30,7 @@
       }
 
       opts['load'] = function (query, callback) {
-        if (!query.length) return callback();
+        if (!query.length || !remote.length) return callback();
         $.ajax({
           url: remote + '?q[' + field_text + '_contains]=' + encodeURIComponent(query),
           type: 'GET',
